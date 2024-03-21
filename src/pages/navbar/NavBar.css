@@ -1,0 +1,30 @@
+.navbar-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.logo-container {
+  margin-right: 48px;
+}
+
+.link-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 16px;
+}
+
+@media (max-width: 768px) {
+  .logo-container {
+    margin-right: 24px;
+  }
+
+  .link-container {
+    gap: 16px;
+  }
+
+  .navbar-container {
+    flex-direction: column;
+  }
+}
