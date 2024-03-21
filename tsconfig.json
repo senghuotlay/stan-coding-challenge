@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "target": "es5",
+    "target": "ESNext",
     "allowJs": true,
     "jsx": "react",
     "moduleResolution": "node",
@@ -8,5 +8,5 @@
     "strict": true,
     "esModuleInterop": true
   },
-  "include": ["src/**/*", "index.tsx"]
+  "include": ["src/**/*"]
 }
