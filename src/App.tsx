@@ -1,17 +1,19 @@
 import React from 'react';
-import { Route, BrowserRouter as Router, Routes } from 'react-router-dom';
-import { Home } from './pages/home/screen';
-import { Program } from './pages/program/program';
-import { Error404 } from './pages/error404';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { Home, HomePath } from './pages/home';
+import { Program, ProgramPath } from './pages/program';
+import { Error404, Error404Path } from './pages/error404';
+import { NavBar } from './pages/navbar';
 
 export default function App() {
   return (
-    <Router>
+    <BrowserRouter>
+      <NavBar />
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/program" element={<Program />} />
-        <Route path="*" element={<Error404 />} />
+        <Route path={HomePath} element={<Home />} />
+        <Route path={ProgramPath} element={<Program />} />
+        <Route path={Error404Path} element={<Error404 />} />
       </Routes>
-    </Router>
+    </BrowserRouter>
   );
 }
