@@ -28,7 +28,7 @@ export const Home = () => {
     <Carousel
       data={data || []}
       isLoading={loading}
-      LoadingComponent={<CarouselCardSkeleton isLoading={loading} />}
+      LoadingComponent={<CarouselCardSkeleton />}
       renderItem={(item) => (
         <CarouselCard
           key={item.id}
@@ -37,7 +37,7 @@ export const Home = () => {
           onClick={() => navigateToProgram(item)}
         />
       )}
-      onFocusedPress={navigateToProgram}
+      onFocusedEnterPress={navigateToProgram}
     />
   );
 };

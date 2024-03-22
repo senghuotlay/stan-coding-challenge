@@ -9,7 +9,7 @@ type CarouselProps<T> = {
   isError?: boolean;
   ErrorComponent?: React.ReactNode;
   renderItem: (item: T, index: number) => React.ReactNode;
-  onFocusedPress: (item: T) => void;
+  onFocusedEnterPress: (item: T) => void;
 };
 
 const MAXIMUM_ITEMS_TO_DISPLAY = 6;
@@ -23,7 +23,7 @@ export const Carousel = <T,>({
   isError,
   ErrorComponent,
   renderItem,
-  onFocusedPress,
+  onFocusedEnterPress,
 }: CarouselProps<T>) => {
   const itemRefs = useRef<Array<HTMLDivElement | null>>([]);
   const [focusedIndex, setFocusedIndex] = useState<number>(0);
@@ -59,9 +59,8 @@ export const Carousel = <T,>({
     }
 
     if (e.key === 'Enter') {
-      console.log('focusedIndex', focusedIndex);
       const item = slicedData[focusedIndex];
-      onFocusedPress(item);
+      onFocusedEnterPress(item);
     }
   };
 
@@ -85,6 +84,7 @@ export const Carousel = <T,>({
       {isLoading
         ? Array.from({ length: MAXIMUM_ITEMS_TO_DISPLAY }).map((_, index) => (
             <div
+              data-testid={`${testID}-loading-component`}
               key={index}
               style={{
                 display: 'flex',
@@ -98,6 +98,7 @@ export const Carousel = <T,>({
           ))
         : slicedData.map((item, index) => (
             <div
+              data-testid={`${testID}-item-${index}`}
               key={index}
               tabIndex={0}
               ref={(element) => (itemRefs.current[index] = element)}

@@ -10,6 +10,7 @@ export const CarouselCardSkeleton = ({ testID, ...props }: Props) => {
   return (
     <Skeleton
       testID={testID}
+      isLoading={true}
       {...props}
       width={CAROUSEL_WIDTH}
       height={CAROUSEL_HEIGHT}
