@@ -16,7 +16,6 @@ export const useQuery = <T>({ apiUrl, skip }: Props) => {
         return;
       }
       setLoading(true);
-      await new Promise((resolve) => setTimeout(resolve, 1000));
 
       try {
         const response = await fetch(apiUrl);
