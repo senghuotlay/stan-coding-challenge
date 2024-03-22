@@ -6,18 +6,23 @@ import {
   CarouselCardSkeleton,
 } from '../../components/CarouselCard';
 import { useNavigate } from 'react-router-dom';
-import { Program } from '../../types/Program';
+import { ProgramType } from '../../types/Program';
+import { Error } from '../../components/Error';
 
 export const Home = () => {
-  const { data, loading, error } = useQuery<Program[]>({
+  const { data, loading, error } = useQuery<ProgramType[]>({
     apiUrl: '/data.json',
   });
 
   const navigate = useNavigate();
 
-  const navigateToProgram = (item: Program) => {
+  const navigateToProgram = (item: ProgramType) => {
     navigate(`/program/${item.id}`, { state: item });
   };
+
+  if (error) {
+    return <Error errorMessage={error} />;
+  }
 
   return (
     <Carousel
@@ -33,20 +38,6 @@ export const Home = () => {
         />
       )}
       onFocusedPress={navigateToProgram}
-      ErrorComponent={
-        <div>
-          <p
-            style={{
-              color: '#606060',
-              fontSize: '1.5rem',
-              fontWeight: 'bold',
-            }}
-          >
-            {error || 'An unkonwn error occured. Please try again later.'}
-          </p>
-        </div>
-      }
-      isError={!!error}
     />
   );
 };
