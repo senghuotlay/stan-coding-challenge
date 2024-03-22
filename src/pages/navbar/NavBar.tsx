@@ -12,7 +12,7 @@ export const NavBar = () => {
       <div className="logo-container">
         <Link to={HomePath}>
           <img
-            src={require('../../../assets/icons/logo.png')}
+            src={require('../../../assets/icons/logo.svg')}
             alt="logo"
             width={150}
           />

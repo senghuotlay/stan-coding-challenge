@@ -4,27 +4,26 @@ import { BrowserRouter as Router } from 'react-router-dom';
 import { LinkItem } from './LinkItem';
 
 describe('LinkItem', () => {
-  it('renders the link with the correct name and href', () => {
+  it('renders the link with the correct href', () => {
     render(
       <Router>
-        <LinkItem name="Home" redirectTo="/home" />
+        <LinkItem testID="home-link" name="Home" redirectTo="/home" />
       </Router>,
     );
 
-    const linkElement = screen.getByRole('link', { name: /Home/i });
+    const linkElement = screen.getByTestId('home-link');
     expect(linkElement).toBeInTheDocument();
     expect(linkElement).toHaveAttribute('href', '/home');
   });
 
-  it('renders the link with a different name and href', () => {
+  it('should render the correct name', () => {
     render(
       <Router>
-        <LinkItem name="About" redirectTo="/about" />
+        <LinkItem testID="home-link" name="Home" redirectTo="/home" />
       </Router>,
     );
 
-    const linkElement = screen.getByRole('link', { name: /About/i });
-    expect(linkElement).toBeInTheDocument();
-    expect(linkElement).toHaveAttribute('href', '/about');
+    const linkElement = screen.getByTestId('home-link-title');
+    expect(linkElement).toHaveTextContent('Home');
   });
 });
