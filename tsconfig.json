@@ -7,7 +7,8 @@
     "outDir": "./dist",
     "strict": true,
     "esModuleInterop": true,
-    "types": ["@testing-library/jest-dom", "jest"]
+    "resolveJsonModule": true,
+    "types": ["@testing-library/jest-dom", "jest", "node"]
   },
   "include": ["src/**/*"]
 }
