@@ -21,14 +21,15 @@ export const Home = () => {
   };
 
   if (error) {
-    return <Error errorMessage={error} />;
+    return <Error testID="home-error" errorMessage={error} />;
   }
 
   return (
     <Carousel
+      testID="home"
       data={data || []}
       isLoading={loading}
-      LoadingComponent={<CarouselCardSkeleton />}
+      LoadingComponent={<CarouselCardSkeleton testID="home-loading" />}
       renderItem={(item) => (
         <CarouselCard
           key={item.id}

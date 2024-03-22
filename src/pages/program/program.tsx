@@ -7,7 +7,7 @@ import {
   CarouselCard,
   CarouselCardSkeleton,
 } from '../../components/CarouselCard';
-import { ProgramDetails } from '../../components/ProgramOverview';
+import { ProgramDetails } from '../../components/ProgramDetails';
 
 export const Program = () => {
   const params = useParams();
