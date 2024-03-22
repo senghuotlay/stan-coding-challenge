@@ -28,7 +28,7 @@ export const Home = () => {
     <Carousel
       data={data || []}
       isLoading={loading}
-      LoadingComponent={<CarouselCardSkeleton />}
+      LoadingComponent={<CarouselCardSkeleton isLoading={loading} />}
       renderItem={(item) => (
         <CarouselCard
           key={item.id}

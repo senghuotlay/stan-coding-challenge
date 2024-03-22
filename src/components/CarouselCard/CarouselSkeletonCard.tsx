@@ -1,13 +1,18 @@
 import React from 'react';
 import { CAROUSEL_WIDTH, CAROUSEL_HEIGHT } from './constants';
-import { Skeleton } from '../Skeleton';
+import { Skeleton, SkeletonProps } from '../Skeleton';
 
-type Props = {
+type Props = Partial<SkeletonProps> & {
   testID?: string;
 };
 
-export const CarouselCardSkeleton = ({ testID }: Props) => {
+export const CarouselCardSkeleton = ({ testID, ...props }: Props) => {
   return (
-    <Skeleton testID={testID} width={CAROUSEL_WIDTH} height={CAROUSEL_HEIGHT} />
+    <Skeleton
+      testID={testID}
+      {...props}
+      width={CAROUSEL_WIDTH}
+      height={CAROUSEL_HEIGHT}
+    />
   );
 };
