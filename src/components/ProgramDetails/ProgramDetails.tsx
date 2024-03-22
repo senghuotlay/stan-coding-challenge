@@ -1,7 +1,8 @@
 import React from 'react';
 import { Skeleton } from '../Skeleton';
 
-type ProgramDetailsProps = {
+export type ProgramDetailsProps = {
+  testID?: string;
   title: string;
   description: string;
   rating: string;
@@ -12,6 +13,7 @@ type ProgramDetailsProps = {
 };
 
 export const ProgramDetails = ({
+  testID,
   title,
   description,
   rating,
@@ -21,9 +23,9 @@ export const ProgramDetails = ({
   isLoading,
 }: ProgramDetailsProps) => {
   const details = [rating, year, genre, language];
-
   return (
     <div
+      data-testid={testID}
       style={{
         gap: '0.5rem',
         display: 'flex',

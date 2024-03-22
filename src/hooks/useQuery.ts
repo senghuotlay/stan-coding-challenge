@@ -8,7 +8,7 @@ type Props = {
 export const useQuery = <T>({ apiUrl, skip }: Props) => {
   const [data, setData] = useState<T | undefined>();
   const [loading, setLoading] = useState(false);
-  const [error, setError] = useState('');
+  const [error, setError] = useState<string | undefined>();
 
   useEffect(() => {
     const fetchData = async () => {

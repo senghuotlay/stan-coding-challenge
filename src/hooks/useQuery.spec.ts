@@ -29,7 +29,7 @@ describe('useQuery', () => {
     });
 
     expect(result.current.data).toEqual({ data: 'test data' });
-    expect(result.current.error).toBe('');
+    expect(result.current.error).toBe(undefined);
   });
 
   it('handles error state', async () => {

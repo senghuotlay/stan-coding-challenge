@@ -20,10 +20,6 @@ export const Home = () => {
     navigate(`/program/${item.id}`, { state: item });
   };
 
-  if (error) {
-    return <Error testID="home-error" errorMessage={error} />;
-  }
-
   return (
     <Carousel
       testID="home"
@@ -38,6 +34,8 @@ export const Home = () => {
           onClick={() => navigateToProgram(item)}
         />
       )}
+      ErrorComponent={<Error testID="home-error" errorMessage={error} />}
+      isError={!!error}
       onFocusedEnterPress={navigateToProgram}
     />
   );

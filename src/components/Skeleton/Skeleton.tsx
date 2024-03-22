@@ -19,7 +19,7 @@ export const Skeleton = ({
   isLoading,
   children,
   ...props
-}: Props) => {
+}: SkeletonProps) => {
   if (!isLoading) {
     return <>{children}</>;
   }
