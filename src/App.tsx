@@ -11,7 +11,9 @@ export default function App() {
   return (
     <BrowserRouter>
       <div style={{ marginLeft: 48, marginRight: 48, marginTop: 32 }}>
-        <NavBar />
+        <div style={{ marginBottom: 32 }}>
+          <NavBar />
+        </div>
         <Routes>
           <Route path={HomePath} element={<Home />} />
           <Route path={ProgramPath} element={<Program />} />
